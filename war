@@ -10,11 +10,15 @@ typedef struct {
 } Territorio;
 
 int main() {
-    Territorio territorios[6];
-    int i;
-
-    // inicializa o gerador de números aleatórios
+   
     srand(time(NULL));
+Territorio *territorios = (Territorio *) calloc(6, sizeof(Territorio));
+if (territorios == NULL){
+    printf("erro ao alocar memoria/n");
+    return 1;
+}
+
+int i;
 
     printf("Digite o nome dos 3 países da América do Sul:\n");
     for (i = 0; i < 3; i++) {
@@ -117,6 +121,8 @@ int main() {
             }
         }
     }
+
+    free(territorios);
 
     return 0;
 }
